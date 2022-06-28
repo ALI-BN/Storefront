@@ -1,0 +1,17 @@
+{% extends "storefront/base.html" %} {% block content%} {% for account in acc%}
+{% if account.name == 'Ali' %}
+<h1>Hello Admin</h1>
+{% endif %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ account.name }}</a>
+      <small class="text-muted">{{ account.date}}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{ account.serialNum }}</a></h2>
+    <p class="article-content">{{ account.email }}</p>
+  </div>
+</article>
+{%endfor%}
+<p>This is the about page</p>
+{%endblock content%}

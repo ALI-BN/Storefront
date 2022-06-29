@@ -30,16 +30,22 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# after creating app using (python manage.py startapp {appname}) enter it here
+# Or when we install an app using pip
 INSTALLED_APPS = [
-    'playground.apps.PlaygroundConfig',
+    'playground.apps.PlaygroundConfig',  # playground app
+    'users.apps.UsersConfig',  # users app
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "debug_toolbar",
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
@@ -136,3 +142,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

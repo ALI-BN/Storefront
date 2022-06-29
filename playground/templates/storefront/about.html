@@ -1,15 +1,15 @@
 {% extends "storefront/base.html" %} {% block content%} {% for account in acc%}
-{% if account.name == 'Ali' %}
+{% if account.owner == 'Ali' %}
 <h1>Hello Admin</h1>
 {% endif %}
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      <a class="mr-2" href="#">{{ account.name }}</a>
-      <small class="text-muted">{{ account.date}}</small>
+      <a class="mr-2" href="#">{{ account.owner }}</a>
+      <small class="text-muted">{{ account.date_created | date:"n/d/Y"}}</small>
     </div>
-    <h2><a class="article-title" href="#">{{ account.serialNum }}</a></h2>
-    <p class="article-content">{{ account.email }}</p>
+    <h2><a class="article-title" href="#">{{ account.name }}</a></h2>
+    <p class="article-content">{{ account.describtion }}</p>
   </div>
 </article>
 {%endfor%}

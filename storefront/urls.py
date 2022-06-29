@@ -21,6 +21,7 @@ import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('playground.urls')),
+    path('register/', include('users.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('p/', TemplateView.as_view(template_name='index.html'))
 ]

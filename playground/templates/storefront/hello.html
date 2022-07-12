@@ -1,5 +1,38 @@
-{% extends "storefront/base.html"%} {%block content%} {% if owner %}
-<h1>Hello {{owner}}</h1>
-{% else %}
-<p>This is the home page</p>
-{% endif %} {%endblock%}
+{% extends "storefront/base.html" %} {% block content%}
+<!-- ASD -->
+{% for store in stores%}
+<article class="media content-section">
+  <div class="row">
+    {% for product in products%}
+    <!-- IF -->
+    {%if product.sellingStore.name == store.name %}
+
+    <div class="col-sm-6">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="{{ product.image.url }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><a href="#">{{ product.name }}</a></h5>
+          <p class="card-text">{{ product.describtion }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${{product.price}}</li>
+          <li class="list-group-item">{{product.rating}} out of 5.0</li>
+          <li class="list-group-item">Store: {{product.sellingStore.name}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">ADD TO CART</a>
+          <small><a href="#" class="card-link">Save to wishlist</a></small>
+        </div>
+      </div>
+    </div>
+
+    {%endif%} {%endfor%}
+  </div>
+</article>
+{%endfor%}
+<!-- <p>This is the about page</p> -->
+{%endblock content%}

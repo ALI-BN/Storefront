@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'playground.apps.PlaygroundConfig',  # playground app
     'users.apps.UsersConfig',  # users app
+    'products.apps.ProductsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -143,5 +144,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# for uploaded file will be save. In our base dir we have media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'  # how to access it in the browser
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'store-home'
+LOGIN_URL = 'login'

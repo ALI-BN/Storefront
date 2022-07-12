@@ -1,0 +1,16 @@
+{% extends "storefront/base.html" %} {% block content%}
+<!-- ASD -->
+{% for store in stores%}
+<article class="media content-section">
+  <div class="media-body">
+    {% for product in products%}
+    <!-- IF -->
+    {%if product.sellingStore.name == store.name %} {%endif%} {%endfor%}
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ store.name }}</a>
+    </div>
+  </div>
+</article>
+{%endfor%}
+<p>This is the about page</p>
+{%endblock content%}
